@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ListGroup } from 'react-bootstrap';
 import { pokeApi, Pokemon, PokemonSpecies } from '../apis/pokedex';
 
 interface SearchResultProps{
@@ -29,17 +30,19 @@ export function SearchResult({pokemon}: SearchResultProps){
   return (
     <div style={{ width: "18rem", margin: "auto"}}>
       <img alt={pokemon.name} src={pokemon.sprites.front_default} />
+      <br />
       <h1>{pokemon.name.toUpperCase()}</h1>
       <p>{species?.flavor_text_entries.filter((f) => f.language.name === "en")[0].flavor_text}</p>
-      <h2>Abilities</h2>
+      <br />
+      <h1>Abilities</h1>
       <div>
         {pokemon.abilities.map(ability => (
           <div key={ability.ability.url} style={{ textAlign: "left"}}>
-            <ul>
-              <li style={{ textTransform: "capitalize"}}>
+            <ListGroup>
+              <ListGroup.Item variant="light" style={{ fontFamily: 'Courier New' && "monospace", textTransform: "capitalize"}}>
                 {ability.ability.name}
-              </li>
-            </ul>
+              </ListGroup.Item>
+            </ListGroup>
           </div>
         ))}
       </div>
