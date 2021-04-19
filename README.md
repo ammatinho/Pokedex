@@ -7,9 +7,9 @@
 •	This App uses the PokéApi
 
 •	Used Jest for testing
-
+#
 Visit my project here - 
-
+#
 Technologies used: 
 
 < CSS, React, Typscript, Jest />
